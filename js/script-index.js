@@ -1,11 +1,10 @@
 $(document).ready( function(){
-
+	// Esconder flecha - Etapa 1 
+    $('.js-back').hide();
+    $('.js-menu').show();       
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
-
 });
-
-
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
 * marcado el atributo "highlighted" como TRUE
