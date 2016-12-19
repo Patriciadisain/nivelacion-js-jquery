@@ -1,8 +1,12 @@
 $(document).ready( function(){
 	// Esconder flecha - Etapa 1 
-    $('.js-back').hide();
-    $('.js-menu').show();       
-	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
+    $(".js-back").hide();
+    $(".js-menu").show(); 
+    // Incorporar nueva noticia
+   	(function printNews (ev) {
+   		$(".callout-news").append("<p>NUEVAS RECETAS</p>");
+   	}) ();
+   	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 });
 /*
