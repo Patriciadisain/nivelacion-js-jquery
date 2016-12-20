@@ -8,7 +8,8 @@ $(document).ready( function(){
    	}) ();
    	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
-});
+	avatar(activities[0]);
+});	
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
 * marcado el atributo "highlighted" como TRUE
@@ -47,14 +48,33 @@ function renderRecipe(recipe) {
 function renderActivities(activitiesArray) {
 }
 
-$(document).ready( function renderActivities(activitiesArray){
+function renderActivities(activitiesArray){
 	for ( var i=0; i < activitiesArray.length ; ++i){
 		renderActivity(activitiesArray[i]);
 	}
 	if( activitiesArray.length > 0){
 		$('.wrapper-message').hide();
 	}
-});
+};
+function avatar (activities) {
+	var newHTML = '<a href="#" class="item-activity">' + 
+  					'<span class="attribution">' +   
+    					'<span class="avatar">' +
+      						'<img src="' +activities.userAvatar+ '" class="image-avatar">' +
+      					'</span>' +      
+				    '<span class="meta">' +
+				      	'<span class="author">' +activities.userName[0]+activities.userName[1]+activities.userName[2]+activities.userName[3]+ '  </span>' +
+				      	'<span class="recipe">' +activities.recipeName+ '</span>' +
+				      	'<span class="location">&mdash;' +activities.place+ '</span>' +
+					    '</span>' +				  
+					  	'</span>' +
+				    '<div class="bg-image" style="background-image: url('+activities.image+');">' +
+				    '</div>';
+
+
+ $(".list-activities").append(newHTML);
+ 
+};
 
 /*
 * Función que se encarga de pintar una actividad
