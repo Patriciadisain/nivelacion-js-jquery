@@ -16,10 +16,10 @@ $(document).ready( function(){
 function renderHighlightedRecipes(recipesArray){ 
 	for ( var i=0; i < recipesArray.length ; ++i){
 		if(recipesArray[i].highlighted == true){
-			renderRecipe();
+			renderRecipe(recipesArray[i]);
 		}
-	};
-};
+	}
+}
 /*
 * Función que se encarga de pintar UNA recetas que tenga 
 * marcado el atributo "highlighted" como TRUE
@@ -27,10 +27,20 @@ function renderHighlightedRecipes(recipesArray){
 * archivo "templates/templates-recipe.html"
 */
 function renderRecipe(recipe) {
-	console.log('Voy a pintar la receta: ', recipe);
-}
+    var forRecipe = '<a class="item-recipe" target="_blank" href="' + recipe.source.url + '">' +
+				    '<span class="attribution">' +
+			    		'<span class="title-recipe">' + recipe.title + '</span>' +
+			    		'<span class="metadata-recipe">' +
+			      			'<span class="author-recipe">' + recipe.source.name + '</span>' +
+			      			'<span class="bookmarks-recipe">' +
+			        			'<span class="icon-bookmark"></span>' + 
+			      			'</span>' +
+			    			'</span>' +
+			  		'</span>' + 
+		  			'<img src="img/recipes/640x800/' + recipe.name + '.jpg"/>'+'</a>';
 
-
+    $('.list-recipes').append(forRecipe);		
+};
 
 /*
 * Función que se encarga de pintar todas las actividades
