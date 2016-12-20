@@ -41,13 +41,20 @@ function renderRecipe(recipe) {
 
     $('.list-recipes').append(forRecipe);		
 };
-
 /*
 * Función que se encarga de pintar todas las actividades
 */
 function renderActivities(activitiesArray) {
-	console.log('Activities: ', activitiesArray);
 }
+
+$(document).ready( function renderActivities(activitiesArray){
+	for ( var i=0; i < activitiesArray.length ; ++i){
+		renderActivity(activitiesArray[i]);
+	}
+	if( activitiesArray.length > 0){
+		$('.wrapper-message').hide();
+	}
+});
 
 /*
 * Función que se encarga de pintar una actividad
